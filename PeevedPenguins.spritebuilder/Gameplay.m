@@ -13,7 +13,7 @@
     CCNode *_catapultArm;
     CCNode *_levelNode;
     CCNode *_contentNode;
-    
+    CCNode *_pullbackNode;
     
 }
 
@@ -24,6 +24,8 @@
     [_levelNode addChild:level];
     // visualize physics bodies & joints
     _physicsNode.debugDraw = TRUE;
+    // nothing shall collide with our invisible nodes
+    _pullbackNode.physicsBody.collisionMask = @[];
 }
 
 -(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
